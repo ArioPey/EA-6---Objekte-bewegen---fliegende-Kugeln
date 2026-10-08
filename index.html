@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Objekte bewegen – fliegende Kugeln</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+<h1>Objekte bewegen – fliegende Kugeln</h1>
+<p>WebGL-Szene mit vier Kugeln, Torus und Gitterebene.</p>
+<div class="app"><div class="viewer"><canvas id="glCanvas" width="1000" height="650"></canvas></div>
+<aside><h2>Steuerung</h2><button id="toggle">▶ Animation starten</button><button id="step">K – Schritt</button><button id="reset">R – Zurücksetzen</button>
+<ul><li><kbd>K</kbd>: Kugeln einen Schritt bewegen</li><li><kbd>Leertaste</kbd>: Animation ein/aus</li><li><kbd>R</kbd>: zurücksetzen</li></ul>
+<p id="status">Animation pausiert</p><p>Winkel: <b id="angle">0°</b></p><p>Torusrotation: <b id="torusAngle">0°</b></p></aside></div>
+<section><h2>Dokumentation</h2>
+<h3>Aufgabenstellung</h3><p>Vier Kugeln fliegen auf kontinuierlichen Kreisbahnen durch einen Torus. Unter dem Torus befindet sich eine Gitterebene zur räumlichen Orientierung. Der Torus dreht sich synchron um mehrere Achsen.</p>
+<h3>Mathematische Bewegung</h3><pre>x = R · cos(α + i · π/2)
+y = H · sin(α + i · π/2)
+z = R · sin(α + i · π/2)</pre>
+<p>Die vier Kugeln sind um 90° phasenverschoben und bleiben dadurch getrennt. α wird während der automatischen Animation kontinuierlich erhöht.</p>
+<h3>Objekt- und Kamerabewegung</h3><p>Die Kamera bleibt fest. Die Kugeln werden über ihre Model-Transformationen innerhalb der Szene bewegt. Das ist eine Objektanimation und keine Kamerabewegung.</p>
+<h3>Torus</h3><p>Der Torus wird synchron mit dem Animationsparameter um X- und Y-Achse gedreht. Die Geometrie und die Bahnradien sind so gewählt, dass die Kugeln nicht mit dem Torus kollidieren.</p>
+<h3>Quellen</h3><ul><li><a href="https://webglfundamentals.org/webgl/lessons/webgl-2d-rotation.html">WebGL Fundamentals – Rotation</a></li><li>Geometrien und Animation wurden für diese Anwendung selbst implementiert.</li></ul>
+<h3>Fehlerbehandlung und QA</h3><p>WebGL sowie Shader-Kompilierung und Program-Linking werden geprüft. Testumgebung: Chrome unter macOS. K, Leertaste, R, Buttons, automatische Bewegung und Browser-Konsole testen.</p>
+</section></main><script src="script.js"></script></body></html>
